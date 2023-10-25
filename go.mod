@@ -1,4 +1,4 @@
-bmodule github.com/MalinYamato/mailme
+bmodule github.com/MalinYamato/mam
 go 1.20
 
 require (
