@@ -11,7 +11,6 @@ import (
 	"sync"
 	"time"
 	"os"   
-	"fmt"
         "encoding/json"
 	
 
@@ -74,13 +73,13 @@ func (m *Mailer) Mail(to, subjectTemplate, templateURL, defaultTemplate string, 
 	if err != nil {
 		return err
 	}
-	 out, err := json.Marshal(templateData)
-        if err != nil {
-           panic (err)
-        }
+	// out, err := json.Marshal(templateData)
+       // if err != nil {
+        //   panic (err)
+       // }
 
 	log.Println("body " + body)
-	log.Println("template data " + string(out))
+	//log.Println("template data " + string(out))
 
 	
 
