@@ -1,4 +1,4 @@
-package mailme
+package mm
 
 import (
 	"bytes"
