@@ -10,7 +10,10 @@ import (
 	"strings"
 	"sync"
 	"time"
-	"os"
+	"os"   
+	"fmt"
+        "encoding/json"
+	
 
 	"gopkg.in/gomail.v2"
 
@@ -71,10 +74,13 @@ func (m *Mailer) Mail(to, subjectTemplate, templateURL, defaultTemplate string, 
 	if err != nil {
 		return err
 	}
-	
+	 out, err := json.Marshal(templateData)
+        if err != nil {
+           panic (err)
+        }
 
 	log.Println("body " + body)
-	log.Println("template data " + templateData)
+	log.Println("template data " + string(out))
 
 	
 
