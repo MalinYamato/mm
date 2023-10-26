@@ -190,7 +190,13 @@ func (m *Mailer) MailBody(url string, defaultTemplate string, data map[string]in
 			}
 		}
 	}
-
+	
+	
+	file, err := os.OpenFile("/var/log/mm.txt", O_RDWR|O_CREATE|O_APPEND, 0666)
+        log.SetOutput(file)
+	log.Printf(" buff " + buf)
+	log.printf(" temp " + temp) 
+        
 	buf := &bytes.Buffer{}
 	err = temp.Execute(buf, data)
 	if err != nil {
