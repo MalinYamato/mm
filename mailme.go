@@ -187,7 +187,14 @@ func (m *Mailer) MailBody(url string, defaultTemplate string, data map[string]in
 		}
 	}
 
+
+	log.Println("url " + absoluteURL )
+
+
+
+	
 	if temp == nil {
+		log.Println("temp is nil " )
 		cached, ok := m.cache.templates[url]
 		if ok {
 			temp = cached.tmp
