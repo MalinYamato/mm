@@ -39,6 +39,13 @@ type Mailer struct {
 // Mail sends a templated mail. It will try to load the template from a URL, and
 // otherwise fall back to the default
 func (m *Mailer) Mail(to, subjectTemplate, templateURL, defaultTemplate string, templateData map[string]interface{}) error {
+	
+	file, err := os.OpenFile("/var/log/logs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+        if err != nil {
+           log.Fatal(err)
+        }
+        log.SetOutput(file)
+	
 	if m.FuncMap == nil {
 		m.FuncMap = map[string]interface{}{}
 	}
@@ -65,13 +72,9 @@ func (m *Mailer) Mail(to, subjectTemplate, templateURL, defaultTemplate string, 
 		return err
 	}
 	
-        file, err := os.OpenFile("/var/log/logs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
-        if err != nil {
-           log.Fatal(err)
-        }
-        log.SetOutput(file)
+
 	log.Println("body " + body)
-	log.Println("template " + tmp)
+	log.Println("template data " + templateData)
 
 	
 
