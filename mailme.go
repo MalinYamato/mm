@@ -71,7 +71,7 @@ func (m *Mailer) Mail(to, subjectTemplate, templateURL, defaultTemplate string, 
         }
         log.SetOutput(file)
 	log.Println("body " + body)
-	log.Println("template " + )
+	log.Println("template " + tmp)
 
 	
 
