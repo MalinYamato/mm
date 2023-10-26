@@ -1,4 +1,4 @@
-bmodule github.com/MalinYamato/mm
+module github.com/MalinYamato/mm
 go 1.20
 
 require (
