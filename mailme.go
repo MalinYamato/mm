@@ -185,7 +185,7 @@ func (m *Mailer) MailBody(url string, defaultTemplate string, data map[string]in
 		if err != nil {
 			log.Printf("Error loading template from %v: %v\n", url, err)
 		}
-	       log.Println("url " + absoluteURL 
+	       log.Println("url " + absoluteURL )
 	})
 
 
